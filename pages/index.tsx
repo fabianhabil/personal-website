@@ -60,6 +60,7 @@ const Home: NextPage = () => {
             }
         } catch (e) {
             setError(true);
+            setPlaying(false);
         }
     };
 
