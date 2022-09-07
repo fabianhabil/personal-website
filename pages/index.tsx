@@ -77,7 +77,10 @@ const Home: NextPage = () => {
     };
 
     useEffect(() => {
-        getStatusSpotify();
+        const interval = setInterval(() => {
+            getStatusSpotify();
+        }, 10000);
+        return () => clearInterval(interval);
     }, []);
 
     useEffect(() => {
@@ -91,7 +94,7 @@ const Home: NextPage = () => {
         }, 1000);
         return () => clearInterval(intervalTest);
     }, []);
-    console.log(index);
+
     return (
         <>
             <Head>
