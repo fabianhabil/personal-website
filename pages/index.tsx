@@ -83,7 +83,7 @@ const Home: NextPage = () => {
     useEffect(() => {
         const intervalTest = setInterval(() => {
             const random = Math.floor(Math.random() * dataLagu.length - 2);
-            if (random !== index && random !== -1) {
+            if (random !== index && random >= 0) {
                 setIndex(random);
             } else {
                 setIndex(() => Math.floor(Math.random() * dataLagu.length - 2));
@@ -91,7 +91,7 @@ const Home: NextPage = () => {
         }, 1000);
         return () => clearInterval(intervalTest);
     }, []);
-
+    console.log(index);
     return (
         <>
             <Head>
@@ -101,8 +101,7 @@ const Home: NextPage = () => {
             {playing !== null && (
                 <div className='flex min-h-screen flex-col items-center justify-center py-2'>
                     <main className='flex w-full flex-col items-center justify-center px-20 text-center gap-10'>
-                        <h1 className='text-6xl font-bold'>{dataLagu[index]}</h1>
-                        <h2 className='text-5xl'>coming soon.</h2>
+                        <h1 className='text-6xl font-bold'>{index < 0 ? 'The Retirement Of U' : dataLagu[index]}</h1>
                         {!error && (
                             <div className='flex flex-col gap-3 items-center'>
                                 <p className='text-xl'>
