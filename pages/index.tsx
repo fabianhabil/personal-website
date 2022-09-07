@@ -36,12 +36,23 @@ const Home: NextPage = () => {
 
     const getStatusSpotify = async () => {
         try {
+            const accessToken = await axios({
+                method: 'post',
+                url: 'https://accounts.spotify.com/api/token',
+                data: `grant_type=refresh_token&refresh_token=${process.env.NEXT_PUBLIC_REFRESH_TOKEN}`,
+                headers: {
+                    Authorization: `Basic ${process.env.NEXT_PUBLIC_AUTH_BASIC}`,
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                }
+            });
+
             const response = await axios.get('https://api.spotify.com/v1/me/player/currently-playing', {
                 headers: {
-                    Authorization: `Bearer ${process.env.NEXT_PUBLIC_SPOTIFY_KEY}`,
+                    Authorization: `Bearer ${accessToken.data.access_token}`,
                     'Content-type': 'application/json'
                 }
             });
+
             if (response.data) {
                 if (response.data.is_playing) {
                     setPlaying(true);
@@ -59,6 +70,7 @@ const Home: NextPage = () => {
                 });
             }
         } catch (e) {
+            console.log(e);
             setError(true);
             setPlaying(false);
         }
@@ -70,11 +82,11 @@ const Home: NextPage = () => {
 
     useEffect(() => {
         const intervalTest = setInterval(() => {
-            const random = Math.floor(Math.random() * dataLagu.length - 1);
+            const random = Math.floor(Math.random() * dataLagu.length - 2);
             if (random !== index && random !== -1) {
                 setIndex(random);
             } else {
-                setIndex(() => Math.floor(Math.random() * dataLagu.length - 1));
+                setIndex(() => Math.floor(Math.random() * dataLagu.length - 2));
             }
         }, 1000);
         return () => clearInterval(intervalTest);
@@ -92,7 +104,7 @@ const Home: NextPage = () => {
                         <h1 className='text-6xl font-bold'>{dataLagu[index]}</h1>
                         <h2 className='text-5xl'>coming soon.</h2>
                         {!error && (
-                            <div className='flex flex-col gap-3'>
+                            <div className='flex flex-col gap-3 items-center'>
                                 <p className='text-xl'>
                                     {playing ? 'currently playing on ' : 'last played on '}
                                     <a
