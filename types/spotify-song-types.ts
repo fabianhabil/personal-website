@@ -1,5 +1,5 @@
 export interface spotifySongTypes {
-    timestamp: Date;
+    timestamp?: Date;
     artistName: string;
     artistLink: string;
     songName: string;

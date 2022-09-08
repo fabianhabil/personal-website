@@ -2,26 +2,11 @@ import Head from 'next/head';
 import CustomImage from '../component/image/customimage';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import { dataLagu, dataSpotifyFavorite } from '../component/Spotify/data/spotifyData';
 import type { NextPage } from 'next';
 import type { spotifySongTypes } from '../types/spotify-song-types';
 
 const Home: NextPage = () => {
-    const dataLagu: string[] = [
-        'A Day That Feels Better',
-        'Please Baby Please',
-        'Jealousy',
-        'I Got To Get You',
-        'Closure',
-        'Untitled',
-        'Lover Stay',
-        'Modern Love',
-        'The Retirement of U',
-        'Deeper',
-        'Live Forever',
-        'Be Okay Again Today',
-        'Intentions',
-        'To The Bone'
-    ];
     const [index, setIndex] = useState<number>(0);
     const [playing, setPlaying] = useState<boolean | null>(null);
     const [error, setError] = useState<boolean>(false);
@@ -52,7 +37,6 @@ const Home: NextPage = () => {
                     'Content-type': 'application/json'
                 }
             });
-            console.log(response);
             if (response.status === 204) {
                 setPlaying(false);
                 setError(true);
@@ -86,7 +70,23 @@ const Home: NextPage = () => {
 
     useEffect(() => {
         const interval = setInterval(() => {
-            getStatusSpotify();
+            if (error === false) getStatusSpotify();
+        }, 1000);
+        return () => clearInterval(interval);
+    }, []);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            if (error === true) {
+                setPlaying(true);
+                setError(true);
+                const random = Math.floor(Math.random() * 4);
+                if (random >= 0 && random <= 3) {
+                    setSpotifySong(dataSpotifyFavorite[random]);
+                } else {
+                    setSpotifySong(dataSpotifyFavorite[Math.floor(Math.random() * 4)]);
+                }
+            }
         }, 1000);
         return () => clearInterval(interval);
     }, []);
@@ -102,6 +102,8 @@ const Home: NextPage = () => {
         }, 1000);
         return () => clearInterval(intervalTest);
     }, []);
+
+    console.log(spotifySong);
 
     return (
         <>
@@ -126,6 +128,49 @@ const Home: NextPage = () => {
                                         spotify
                                     </a>
                                 </p>
+                                <CustomImage
+                                    priority={true}
+                                    src={spotifySong.albumLink}
+                                    width='100%'
+                                    maxWidth='400px'
+                                    alt='test'
+                                />
+                                <p className='text-xl font-bold'>
+                                    <a
+                                        className='hover:underline font-bold text-black'
+                                        href={spotifySong.songLink}
+                                        target='_blank'
+                                        rel='noopener noreferrer'
+                                    >
+                                        {spotifySong.songName}
+                                    </a>{' '}
+                                    by{' '}
+                                    <a
+                                        className='hover:underline font-bold text-black'
+                                        href={spotifySong.artistLink}
+                                        target='_blank'
+                                        rel='noopener noreferrer'
+                                    >
+                                        {spotifySong.artistName}
+                                    </a>
+                                </p>
+                            </div>
+                        )}
+                        {error && (
+                            <div className='flex flex-col gap-3 items-center'>
+                                <p className='text-xl'>
+                                    last played on{'  '}
+                                    <a
+                                        className='text-green-600 font-semibold'
+                                        target='_blank'
+                                        rel='noopener noreferrer'
+                                        href='https://open.spotify.com/user/fabian6677'
+                                    >
+                                        spotify
+                                    </a>{' '}
+                                    is 6 hours ago
+                                </p>
+                                <p className='text-xl font-semibold'>But here are some favorite song from me.</p>
                                 <CustomImage
                                     priority={true}
                                     src={spotifySong.albumLink}
