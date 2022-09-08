@@ -52,8 +52,11 @@ const Home: NextPage = () => {
                     'Content-type': 'application/json'
                 }
             });
-
-            if (response.data) {
+            console.log(response);
+            if (response.status === 204) {
+                setPlaying(false);
+                setError(true);
+            } else if (response.status === 200) {
                 if (response.data.is_playing) {
                     setPlaying(true);
                 } else {
