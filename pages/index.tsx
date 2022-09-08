@@ -57,6 +57,7 @@ const Home: NextPage = () => {
                 setPlaying(false);
                 setError(true);
             } else if (response.status === 200) {
+                setError(false);
                 if (response.data.is_playing) {
                     setPlaying(true);
                 } else {
