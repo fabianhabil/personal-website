@@ -112,7 +112,9 @@ const Home: NextPage = () => {
             {playing !== null && (
                 <div className='flex min-h-screen flex-col items-center justify-center py-2'>
                     <main className='flex w-full flex-col items-center justify-center px-20 text-center gap-10'>
-                        <h1 className='text-6xl font-bold'>{index < 0 ? 'The Retirement Of U' : dataLagu[index]}</h1>
+                        <h1 className='text-3xl font-bold'>
+                            If I died, I would get all the support I need when I was alive.
+                        </h1>
                         {!error && (
                             <div className='flex flex-col gap-3 items-center'>
                                 <p className='text-xl'>
