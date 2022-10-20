@@ -113,7 +113,7 @@ const Home: NextPage = () => {
                 <div className='flex min-h-screen flex-col items-center justify-center py-2'>
                     <main className='flex w-full flex-col items-center justify-center px-20 text-center gap-10'>
                         <h1 className='text-3xl font-bold'>
-                            If I died, I would get all the support I need when I was alive.
+                            headline from this day on; you're all the one i want.
                         </h1>
                         {!error && (
                             <div className='flex flex-col gap-3 items-center'>
