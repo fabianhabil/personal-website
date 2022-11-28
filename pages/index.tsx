@@ -52,10 +52,14 @@ const Home: NextPage = () => {
                     'Content-type': 'application/json'
                 }
             });
-            console.log(response);
             if (response.status === 204) {
                 setPlaying(false);
-                setError(true);
+                if (localStorage.getItem('spotify-song') === null) {
+                    setError(true);
+                } else {
+                    const spotifySong: spotifySongTypes = JSON.parse(localStorage.getItem('spotify-song') ?? '{}');
+                    setSpotifySong(() => spotifySong);
+                }
             } else if (response.status === 200) {
                 setError(false);
                 if (response.data.is_playing) {
@@ -63,15 +67,16 @@ const Home: NextPage = () => {
                 } else {
                     setPlaying(false);
                 }
-                setSpotifySong({
-                    ...spotifySong,
+                const spotifySong: spotifySongTypes = {
                     timestamp: response.data.timestamp,
                     artistName: response.data.item.artists[0].name,
                     artistLink: response.data.item.artists[0].external_urls.spotify,
                     songName: response.data.item.name,
                     songLink: response.data.item.external_urls.spotify,
                     albumLink: response.data.item.album.images[0].url
-                });
+                };
+                setSpotifySong(() => spotifySong);
+                localStorage.setItem('spotify-song', JSON.stringify(spotifySong));
             }
         } catch (e) {
             console.log(e);
@@ -112,9 +117,7 @@ const Home: NextPage = () => {
             {playing !== null && (
                 <div className='flex min-h-screen flex-col items-center justify-center py-2'>
                     <main className='flex w-full flex-col items-center justify-center px-20 text-center gap-10'>
-                        <h1 className='text-3xl font-bold'>
-                            headline from this day on; you're all the one i want.
-                        </h1>
+                        <h1 className='text-3xl font-bold'>i love you.</h1>
                         {!error && (
                             <div className='flex flex-col gap-3 items-center'>
                                 <p className='text-xl'>
