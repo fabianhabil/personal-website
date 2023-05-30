@@ -111,7 +111,7 @@ export default function Spotify() {
             {playing !== null && (
                 <div className='flex min-h-screen flex-col items-center justify-center py-2'>
                     <main className='flex w-full flex-col items-center justify-center px-20 text-center gap-10'>
-                        <h1 className='text-3xl font-bold'>i love you.</h1>
+                        <h1 className='text-3xl font-bold'>Currently in Development❤</h1>
                         {!error && (
                             <div className='flex flex-col gap-3 items-center'>
                                 <p className='text-xl'>
