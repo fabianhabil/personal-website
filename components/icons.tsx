@@ -1,4 +1,4 @@
-import { type LucideProps, Moon, SunMedium, Twitter, type Icon as LucideIcon } from 'lucide-react';
+import { type LucideProps, Moon, SunMedium, Twitter, type Icon as LucideIcon, Linkedin } from 'lucide-react';
 
 export type Icon = LucideIcon;
 
@@ -6,6 +6,7 @@ export const Icons = {
     sun: SunMedium,
     moon: Moon,
     twitter: Twitter,
+    linkedIn: Linkedin,
     people: (props: LucideProps) => (
         <svg
             xmlns='http://www.w3.org/2000/svg'

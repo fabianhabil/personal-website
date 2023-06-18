@@ -1,19 +1,18 @@
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
-    name: 'Next.js',
-    description: 'Beautifully designed components built with Radix UI and Tailwind CSS.',
+    name: 'Fabian Habil',
+    description: 'Fabian Habil - Personal Website',
     mainNav: [
         {
             title: 'Home',
             href: '/',
-            test: true
         },
         { title: 'Portfolio', href: '/portfolio', disabled: true }
     ],
     links: {
-        twitter: 'https://twitter.com/shadcn',
-        github: 'https://github.com/shadcn/ui',
-        docs: 'https://ui.shadcn.com'
+        twitter: 'https://twitter.com/fortunecs2',
+        github: 'https://github.com/fabianhabil',
+        linkedIn: 'https://www.linkedin.com/in/fabianhabil'
     }
 };

@@ -1,16 +1,16 @@
+import { buttonVariants } from './atoms/button/button';
 import { Icons } from '@/components/icons';
 import { MainNav } from '@/components/main-nav';
 import { ThemeToggle } from '@/components/theme-toggle';
-import { buttonVariants } from '@/components/ui/button';
 import { siteConfig } from '@/config/site';
 import Link from 'next/link';
 
 export function SiteHeader() {
     return (
         <header className='top-0 z-40 w-full bg-background'>
-            <div className='container flex h-16 items-center sm:justify-between '>
+            <div className='flex h-16 items-center sm:justify-between'>
                 <MainNav items={siteConfig.mainNav} />
-                <div className='flex flex-1 items-center justify-end'>
+                <div className='flex items-center justify-end'>
                     <nav className='flex items-center space-x-1'>
                         <Link href={siteConfig.links.github} target='_blank' rel='noreferrer'>
                             <div

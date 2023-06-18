@@ -3,7 +3,6 @@ import { SiteHeader } from '@/components/site-header';
 import { TailwindIndicator } from '@/components/tailwind-indicator';
 import { ThemeProvider } from '@/components/theme-provider';
 import { siteConfig } from '@/config/site';
-import { fontSans } from '@/lib/fonts';
 import { cn } from '@/lib/utils';
 import type { Metadata } from 'next';
 
@@ -29,16 +28,16 @@ interface RootLayoutProps {
 }
 
 export default function RootLayout({ children }: RootLayoutProps) {
-    console.log(fontSans.variable);
     return (
         <>
             <html lang='en' suppressHydrationWarning={true}>
                 <body
-                    className={cn('min-h-screen bg-background font-sans antialiased')}
+                    className={cn('min-h-screen bg-background antialiased')}
                     suppressHydrationWarning={true}
+                    style={{ fontFamily: 'SF Pro Display' }}
                 >
                     <ThemeProvider attribute='class' defaultTheme='dark' enableSystem>
-                        <div className='relative flex min-h-screen flex-col justify-between'>
+                        <div className='container relative flex min-h-screen flex-col justify-between'>
                             <SiteHeader />
                             <div>{children}</div>
                             <div />

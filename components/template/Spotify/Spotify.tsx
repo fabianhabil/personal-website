@@ -36,6 +36,7 @@ export default function Spotify() {
                     'Content-type': 'application/json'
                 }
             });
+
             if (response.status === 204) {
                 setPlaying(false);
                 if (localStorage.getItem('spotify-song') === null) {
@@ -83,7 +84,7 @@ export default function Spotify() {
     return (
         <>
             {playing !== null && (
-                <div className='container flex flex-col items-center justify-center gap-6 pb-8 pt-6 md:py-10'>
+                <div className='flex flex-col items-center justify-center gap-6 pb-8 pt-6 md:py-10'>
                     <main className='flex w-full flex-col items-center justify-center gap-10 px-20 text-center'>
                         <h1 className='text-3xl font-bold'>Currently in Development❤</h1>
                         {!error && (
