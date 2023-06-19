@@ -1,8 +1,9 @@
 import { buttonVariants } from './atoms/button/button';
+import { navTitle, type NavTitle, navItem, type NavItem } from './constants/nav';
+import { siteConfig } from './constants/site';
 import { Icons } from '@/components/icons';
 import { MainNav } from '@/components/main-nav';
 import { ThemeToggle } from '@/components/theme-toggle';
-import { siteConfig } from '@/config/site';
 import Link from 'next/link';
 
 export function SiteHeader() {

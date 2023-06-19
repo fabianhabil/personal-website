@@ -1,8 +1,8 @@
 import '@/styles/globals.css';
-import { SiteHeader } from '@/components/site-header';
+import { siteConfig } from '@/components/constants/site';
+import Navbar from '@/components/molecules/Navbar';
 import { TailwindIndicator } from '@/components/tailwind-indicator';
 import { ThemeProvider } from '@/components/theme-provider';
-import { siteConfig } from '@/config/site';
 import { cn } from '@/lib/utils';
 import type { Metadata } from 'next';
 
@@ -38,7 +38,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
                 >
                     <ThemeProvider attribute='class' defaultTheme='dark' enableSystem>
                         <div className='container relative flex min-h-screen flex-col justify-between'>
-                            <SiteHeader />
+                            <Navbar />
                             <div>{children}</div>
                             <div />
                         </div>

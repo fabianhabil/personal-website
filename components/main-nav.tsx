@@ -27,20 +27,18 @@ export function MainNav({ items }: MainNavProps) {
     return (
         <div className='flex items-center justify-center gap-6 md:gap-10'>
             <HoverCard>
-                <HoverCardTrigger>
-                    <Link href='/'>
-                        <Image
-                            src={theme === 'dark' ? '/ssera/white.svg' : '/ssera/black.svg'}
-                            alt='logo'
-                            height={0}
-                            width={100}
-                            className='h-auto'
-                        />
-                    </Link>
+                <HoverCardTrigger href='/'>
+                    <Image
+                        src={theme === 'dark' ? '/ssera/white.svg' : '/ssera/black.svg'}
+                        alt='logo'
+                        height={0}
+                        width={100}
+                        className='h-auto'
+                    />
                 </HoverCardTrigger>
                 <HoverCardContent className='text-center'>
-                    I don't have a logo, so for a temporary time this LE SSERAFIM logo would be here because im a FEARNOT
-                    💙
+                    I don't have a logo, so for a temporary time this LE SSERAFIM logo would be here because im a
+                    FEARNOT 💙
                 </HoverCardContent>
             </HoverCard>
             {items?.length ? (
