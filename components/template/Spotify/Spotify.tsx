@@ -75,17 +75,18 @@ export default function Spotify() {
     }, []);
 
     useEffect(() => {
-        const interval = setInterval(() => {
-            getStatusSpotify();
-        }, 1000);
-        return () => clearInterval(interval);
+        if (process.env.NODE_ENV === 'production') {
+            const interval = setInterval(() => {
+                getStatusSpotify();
+            }, 1000);
+            return () => clearInterval(interval);
+        }
     }, []);
 
     return (
         <>
             {playing !== null && (
                 <main className='flex w-full flex-col items-center justify-center gap-8 text-center'>
-                    <h1 className='text-3xl font-bold'>Currently in Development ❤</h1>
                     {!error && (
                         <div className='flex flex-col items-center gap-3'>
                             <p className='text-xl'>
@@ -99,7 +100,13 @@ export default function Spotify() {
                                     spotify
                                 </Link>
                             </p>
-                            <Image priority={true} src={spotifySong.albumLink} width={350} height={350} alt='img' />
+                            <Image
+                                priority={true}
+                                src={spotifySong.albumLink}
+                                width={340}
+                                height={340}
+                                alt='spotify-img'
+                            />
                             <p className='text-xl font-bold'>
                                 <Link
                                     className='font-bold hover:underline'
@@ -121,7 +128,6 @@ export default function Spotify() {
                             </p>
                         </div>
                     )}
-                    <h3 className='text-3xl'>fabian habil.</h3>
                 </main>
             )}
         </>
