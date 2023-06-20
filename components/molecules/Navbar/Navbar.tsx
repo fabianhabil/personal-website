@@ -48,7 +48,7 @@ export default function Navbar() {
                         </nav>
                     ) : null}
                 </div>
-                <div className='hidden items-center gap-2 sm:flex'>
+                <div className='hidden items-center gap-2 sm:flex' style={{ marginRight: -16 }}>
                     {navItem.map((data, index) => {
                         return <NavItemButton key={index} navItem={data} />;
                     })}
