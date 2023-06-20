@@ -4,7 +4,7 @@
 
 @layer base {
     :root {
-        --background: 0 0% 100%;
+        --background: '0 0% 100%';
         --foreground: 222.2 47.4% 11.2%;
 
         --muted: 210 40% 96.1%;
@@ -37,7 +37,7 @@
     }
 
     .dark {
-        --background: 224 71% 4%;
+        --background: 'black';
         --foreground: 213 31% 91%;
 
         --muted: 223 47% 11%;
@@ -46,13 +46,13 @@
         --accent: 216 34% 17%;
         --accent-foreground: 210 40% 98%;
 
-        --popover: 224 71% 4%;
+        --popover: 'black';
         --popover-foreground: 215 20.2% 65.1%;
 
         --border: 216 34% 17%;
         --input: 216 34% 17%;
 
-        --card: 224 71% 4%;
+        --card: 'black';
         --card-foreground: 213 31% 91%;
 
         --primary: 210 40% 98%;
@@ -73,12 +73,19 @@
 @layer base {
     * {
         @apply border-border;
-        font-family: 'SF Pro Display';
     }
     body {
         @apply bg-background text-foreground;
         font-feature-settings: 'rlig' 1, 'calt' 1;
     }
+}
+
+.color-blue-ssera {
+    color: #81a5f9;
+}
+
+.color-blue-ssera-dark {
+    color: #5e8dfa;
 }
 
 @font-face {
