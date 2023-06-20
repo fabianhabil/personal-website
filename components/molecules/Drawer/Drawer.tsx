@@ -23,9 +23,9 @@ export default function Drawer({ theme }: { theme: string | undefined }) {
                                     <Link
                                         className={cn(
                                             'p-2 text-base font-bold text-primary',
-                                            data.disabled && 'cursor-not-allowed opacity-80'
+                                            data.disabled && 'cursor-not-allowed opacity-60'
                                         )}
-                                        href={data.disabled ? '#' : data.href}
+                                        href={data.disabled === true ? '#' : data.href}
                                         key={index}
                                     >
                                         {data.title}

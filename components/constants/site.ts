@@ -6,9 +6,9 @@ export const siteConfig = {
     mainNav: [
         {
             title: 'Home',
-            href: '/',
+            href: '/'
         },
-        { title: 'Portfolio', href: '/portfolio', disabled: true }
+        { title: 'Portfolio', href: '/portfolio', disabled: false }
     ],
     links: {
         twitter: 'https://twitter.com/fortunecs2',
@@ -16,3 +16,17 @@ export const siteConfig = {
         linkedIn: 'https://www.linkedin.com/in/fabianhabil'
     }
 };
+
+export const greetingMessage = [
+    'Hi',
+    'Halo',
+    'Hej',
+    'Bonjour',
+    'مرحباً ',
+    'Aloha',
+    'Olá',
+    '你好',
+    'Hallo',
+    'こんにちは',
+    '안녕하세요'
+];

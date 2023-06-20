@@ -5,9 +5,9 @@ export type NavTitle = typeof navTitle;
 export const navTitle = [
     {
         title: 'Home',
-        href: '/'
+        href: '/',
     },
-    { title: 'Portfolio', href: '/portfolio', disabled: true }
+    { title: 'Portfolio', href: '/portfolio', disabled: false }
 ];
 
 export const navItem = [
