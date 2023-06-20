@@ -32,6 +32,6 @@ export const fontSFPro = localFont({
         { path: '../fonts/SFProDisplay-Regular.ttf', weight: 'normal', style: 'normal' },
         { path: '../fonts/SFProDisplay-BoldItalic.ttf', weight: 'bold', style: 'italic' }
     ],
-    preload: true,
+    display: 'swap',
     variable: '--font-sfpro'
 });
