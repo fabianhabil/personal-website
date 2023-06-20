@@ -3,6 +3,7 @@ import { TailwindIndicator } from '@/components/atoms/TailwindIndicator/Tailwind
 import { siteConfig } from '@/components/constants/site';
 import Navbar from '@/components/molecules/Navbar/Navbar';
 import { ThemeProvider } from '@/components/theme-provider';
+import { fontSFPro } from '@/lib/fonts';
 import { cn } from '@/lib/utils';
 import type { Metadata } from 'next';
 
@@ -32,9 +33,8 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <>
             <html lang='en' suppressHydrationWarning={true}>
                 <body
-                    className={cn('min-h-screen bg-background antialiased')}
+                    className={cn('min-h-screen bg-background font-sfpro antialiased', fontSFPro.variable)}
                     suppressHydrationWarning={true}
-                    style={{ fontFamily: 'SF Pro Display' }}
                 >
                     <ThemeProvider attribute='class' defaultTheme='dark' enableSystem>
                         <div className='container relative flex min-h-screen flex-col justify-between'>

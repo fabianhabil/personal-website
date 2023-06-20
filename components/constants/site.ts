@@ -22,7 +22,6 @@ export const greetingMessage = [
     'Halo',
     'Hej',
     'Bonjour',
-    'مرحباً ',
     'Aloha',
     'Olá',
     '你好',
