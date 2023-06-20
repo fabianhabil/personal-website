@@ -74,75 +74,55 @@ export default function Spotify() {
         getStatusSpotify();
     }, []);
 
-    // useEffect(() => {
-    //     const interval = setInterval(() => {
-    //         getStatusSpotify();
-    //     }, 1000);
-    //     return () => clearInterval(interval);
-    // }, []);
+    useEffect(() => {
+        const interval = setInterval(() => {
+            getStatusSpotify();
+        }, 1000);
+        return () => clearInterval(interval);
+    }, []);
 
     return (
         <>
             {playing !== null && (
-                <div className='flex flex-col items-center justify-center gap-6 pb-8 pt-6 md:py-10'>
-                    <main className='flex w-full flex-col items-center justify-center gap-10 px-20 text-center'>
-                        <h1 className='text-3xl font-bold'>Currently in Development❤</h1>
-                        {!error && (
-                            <div className='flex flex-col items-center gap-3'>
-                                <p className='text-xl'>
-                                    {playing ? 'currently playing on ' : 'last played on '}
-                                    <Link
-                                        className='font-semibold text-green-600'
-                                        target='_blank'
-                                        rel='noopener noreferrer'
-                                        href='https://open.spotify.com/user/fabian6677'
-                                    >
-                                        spotify
-                                    </Link>
-                                </p>
-                                <Image priority={true} src={spotifySong.albumLink} width={400} height={400} alt='img' />
-                                <p className='text-xl font-bold'>
-                                    <Link
-                                        className='font-bold hover:underline'
-                                        href={spotifySong.songLink}
-                                        target='_blank'
-                                        rel='noopener noreferrer'
-                                    >
-                                        {spotifySong.songName}
-                                    </Link>{' '}
-                                    by{' '}
-                                    <Link
-                                        className='font-bold hover:underline'
-                                        href={spotifySong.artistLink}
-                                        target='_blank'
-                                        rel='noopener noreferrer'
-                                    >
-                                        {spotifySong.artistName}
-                                    </Link>
-                                </p>
-                            </div>
-                        )}
-                        <h3 className='text-3xl'>fabian habil.</h3>
-                        <div className='flex flex-row gap-3'>
-                            <a
-                                className='font-bold hover:underline'
-                                href='https://github.com/fabianhabil'
-                                target='_blank'
-                                rel='noopener noreferrer'
-                            >
-                                github
-                            </a>
-                            <a
-                                className='font-bold text-sky-400 hover:underline'
-                                href='https://linkedin.com/in/fabianhabil'
-                                target='_blank'
-                                rel='noopener noreferrer'
-                            >
-                                linkedin
-                            </a>
+                <main className='flex w-full flex-col items-center justify-center gap-8 text-center'>
+                    <h1 className='text-3xl font-bold'>Currently in Development ❤</h1>
+                    {!error && (
+                        <div className='flex flex-col items-center gap-3'>
+                            <p className='text-xl'>
+                                {playing ? 'currently playing on ' : 'last played on '}
+                                <Link
+                                    className='font-semibold text-green-600'
+                                    target='_blank'
+                                    rel='noopener noreferrer'
+                                    href='https://open.spotify.com/user/fabian6677'
+                                >
+                                    spotify
+                                </Link>
+                            </p>
+                            <Image priority={true} src={spotifySong.albumLink} width={350} height={350} alt='img' />
+                            <p className='text-xl font-bold'>
+                                <Link
+                                    className='font-bold hover:underline'
+                                    href={spotifySong.songLink}
+                                    target='_blank'
+                                    rel='noopener noreferrer'
+                                >
+                                    {spotifySong.songName}
+                                </Link>{' '}
+                                by{' '}
+                                <Link
+                                    className='font-bold hover:underline'
+                                    href={spotifySong.artistLink}
+                                    target='_blank'
+                                    rel='noopener noreferrer'
+                                >
+                                    {spotifySong.artistName}
+                                </Link>
+                            </p>
                         </div>
-                    </main>
-                </div>
+                    )}
+                    <h3 className='text-3xl'>fabian habil.</h3>
+                </main>
             )}
         </>
     );
