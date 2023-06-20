@@ -1,7 +1,7 @@
 import '@/styles/globals.css';
+// import { TailwindIndicator } from '@/components/atoms/TailwindIndicator/TailwindIndicator';
 import { siteConfig } from '@/components/constants/site';
-import Navbar from '@/components/molecules/Navbar';
-import { TailwindIndicator } from '@/components/tailwind-indicator';
+import Navbar from '@/components/molecules/Navbar/Navbar';
 import { ThemeProvider } from '@/components/theme-provider';
 import { cn } from '@/lib/utils';
 import type { Metadata } from 'next';
@@ -42,7 +42,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
                             <div>{children}</div>
                             <div />
                         </div>
-                        <TailwindIndicator />
+                        {/* <TailwindIndicator /> */}
                     </ThemeProvider>
                 </body>
             </html>
