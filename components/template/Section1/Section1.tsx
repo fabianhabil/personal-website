@@ -13,7 +13,9 @@ export default function Section1() {
 
     useEffect(() => {
         const interval = setInterval(() => {
-            setGreetingIndex((state) => (state === greetingMessage.length - 1 ? 0 : state + 1));
+            setGreetingIndex((state) =>
+                state === greetingMessage.length - 1 ? 0 : state + 1
+            );
         }, 1000);
 
         setMounted(() => true);
@@ -42,10 +44,22 @@ export default function Section1() {
                         {greetingMessage[greetingIndex]}, <br />
                         my name is Fabian Habil
                     </p>
-                    <p className='text-6xl font-semibold'>I'm a Software Engineer</p>
+                    <p className='text-6xl font-semibold'>
+                        I'm a Software Engineer
+                    </p>
                     <p className='text-2xl font-normal'>
-                        and currently studying Computer Science <br className='hidden sm:block' />
-                        at Bina Nusantara University
+                        Software Engineer intern at{' '}
+                        <a
+                            className='cursor-pointer text-green-400'
+                            href='https://www.cultivest.co/'
+                            target='_blank'
+                            rel='noreferrer'
+                        >
+                            Cultivest
+                        </a>{' '}
+                        and <br className='hidden sm:block' />
+                        currently studying Computer Science at Bina Nusantara
+                        University
                     </p>
                 </div>
                 <div>
