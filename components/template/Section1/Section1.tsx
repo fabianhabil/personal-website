@@ -48,7 +48,7 @@ export default function Section1() {
                         I'm a Software Engineer
                     </p>
                     <p className='text-2xl font-normal'>
-                        Software Engineer intern at{' '}
+                        Software Engineer Intern at{' '}
                         <a
                             className='cursor-pointer text-green-400'
                             href='https://www.cultivest.co/'
