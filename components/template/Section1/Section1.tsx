@@ -51,11 +51,11 @@ export default function Section1() {
                         Software Engineer Intern at{' '}
                         <a
                             className='cursor-pointer text-green-400'
-                            href='https://www.cultivest.co/'
+                                href='https://ids.id/'
                             target='_blank'
                             rel='noreferrer'
                         >
-                            Cultivest
+                            Inovasi Daya Solusi
                         </a>{' '}
                         and <br className='hidden sm:block' />
                         currently studying Computer Science at Bina Nusantara
