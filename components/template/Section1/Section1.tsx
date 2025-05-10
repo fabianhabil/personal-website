@@ -48,17 +48,17 @@ export default function Section1() {
                         I'm a Software Engineer
                     </p>
                     <p className='text-2xl font-normal'>
-                        Software Engineer Intern at{' '}
+                        Software Engineer at{' '}
                         <a
-                            className='cursor-pointer text-green-400'
-                                href='https://ids.id/'
+                            className='cursor-pointer text-[#6752fd]'
+                                href='https://photolabtech.com'
                             target='_blank'
                             rel='noreferrer'
                         >
-                            Inovasi Daya Solusi
+                            Photolab
                         </a>{' '}
                         and <br className='hidden sm:block' />
-                        currently studying Computer Science at Bina Nusantara
+                        recently graduated from Computer Science at Bina Nusantara
                         University
                     </p>
                 </div>
