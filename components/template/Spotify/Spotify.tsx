@@ -78,7 +78,7 @@ export default function Spotify() {
         if (process.env.NODE_ENV === 'production') {
             const interval = setInterval(() => {
                 getStatusSpotify();
-            }, 5000);
+            }, 2000);
             return () => clearInterval(interval);
         }
     }, []);
